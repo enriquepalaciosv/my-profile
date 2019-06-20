@@ -1,23 +1,18 @@
 <template>
-  <div id="app">    
-    <EmployeeList/>
+  <div id="app">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import EmployeeList from './components/EmployeeList.vue'
-
 export default {
-  name: 'app',
-  components: {
-    EmployeeList
-  }
-}
+  name: "app"
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
