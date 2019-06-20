@@ -12,14 +12,12 @@ app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
 // DB Connection
-
 mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.on('open', () => {
   console.log('connected to MongoDB');
 });
-
 
 // Routes
 app.use('/api/profile', personalInformationRoute);

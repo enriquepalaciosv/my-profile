@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const personalInformationObject = require('../models/personalInformation.model');
+const PersonalInformation = require('../models/personalInformation.model');
 
 router.get('/:id', (req, res) => {
-  res.send(`The parameter to query is: ${req.params.id}`);
+  PersonalInformation.find({_id: req.params.id}, (error, data) => {
+    if (error) return console.log(error);
+    console.log(data);
+    res.send(data);
+  })
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
-  const newRecord = new personalInformationObject(req.body);
-  console.log(newRecord);
+  const newRecord = new PersonalInformation(req.body);
   newRecord.save((error, data) => {
     if (error) return console.log('there was an error inserting the object ', error);
     res.send(data);
