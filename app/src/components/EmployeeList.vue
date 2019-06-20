@@ -25,13 +25,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 li {
   margin-bottom: 8px;
   cursor: pointer;
-}
-
-li:hover {
-  background-color: #00968751;
+  &:hover {
+    background-color: #00968751;
+  }
 }
 </style>
