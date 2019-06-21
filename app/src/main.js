@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import App from "./App.vue";
 import EmployeeList from "./components/EmployeeList";
 import ProfileDetail from "./components/ProfileDetail";
+import storeObject from "./store";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -15,7 +16,10 @@ const routes = [
 ];
 const router = new VueRouter({ routes, mode: "history" });
 
+const store = new Vuex.Store(storeObject);
+
 new Vue({
     router,
+    store,
     render: h => h(App)
 }).$mount("#app");

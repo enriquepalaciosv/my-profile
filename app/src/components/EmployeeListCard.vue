@@ -1,8 +1,8 @@
 <template>
   <div class="employee-card">
-    <p>{{employee.name}}</p>
+    <p>{{fullName}}</p>
     <small>
-      <b>{{employee.role}}</b>
+      <b>{{employee.profession}}</b>
     </small>
   </div>
 </template>
@@ -10,6 +10,12 @@
 <script>
 export default {
   name: "EmployeeListCard",
+  computed: {
+    fullName() {
+      const { firstName, lastName } = this.employee;
+      return `${firstName} ${lastName} `;
+    }
+  },
   props: {
     employee: Object
   }

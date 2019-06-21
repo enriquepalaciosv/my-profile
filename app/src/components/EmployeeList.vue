@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <router-link tag="li" :to="`/profile/${emp.id}`" v-for="emp in employees" :key="emp.id">
+    <router-link tag="li" :to="`/profile/${emp['_id']}`" v-for="emp in employees" :key="emp.id">
       <EmployeeListCard :employee="emp"/>
     </router-link>
   </ul>
@@ -16,10 +16,7 @@ export default {
   },
   data() {
     return {
-      employees: [
-        { id: 1, name: "Enrique Palacios", role: "Jr. Frontend Developer" },
-        { id: 2, name: "Noel Flores", role: "Sr. Frontend Developer" }
-      ]
+      employees: this.$store.state.employees
     };
   }
 };
