@@ -1,4 +1,5 @@
 <template>
+  <!-- Container -->
   <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:1400px;">
     <!-- The Grid -->
     <div class="w3-row-padding">
@@ -23,111 +24,37 @@
         <br>
         <!-- End Left Column -->
       </div>
-
       <!-- Right Column -->
       <div class="w3-twothird">
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16">
-            <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience
-          </h2>
-          <div class="w3-container">
-            <h5 class="w3-opacity">
-              <b>Front End Developer / w3schools.com</b>
-            </h5>
-            <h6 class="w3-text-teal">
-              <i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 -
-              <span class="w3-tag w3-teal w3-round">Current</span>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel
-              in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora
-              soluta ea et odio, unde doloremque repellendus iure, iste.
-            </p>
-            <hr>
-          </div>
-          <div class="w3-container">
-            <h5 class="w3-opacity">
-              <b>Web Developer / something.com</b>
-            </h5>
-            <h6 class="w3-text-teal">
-              <i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 -
-              Dec 2014
-            </h6>
-            <p>
-              Consectetur adipisicing elit. Praesentium magnam consectetur vel
-              in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora
-              soluta ea et odio, unde doloremque repellendus iure, iste.
-            </p>
-            <hr>
-          </div>
-          <div class="w3-container">
-            <h5 class="w3-opacity">
-              <b>Graphic Designer / designsomething.com</b>
-            </h5>
-            <h6 class="w3-text-teal">
-              <i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 -
-              Mar 2012
-            </h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            <br>
-          </div>
-        </div>
-
-        <div class="w3-container w3-card w3-white">
-          <h2 class="w3-text-grey w3-padding-16">
-            <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education
-          </h2>
-          <div class="w3-container">
-            <h5 class="w3-opacity">
-              <b>W3Schools.com</b>
-            </h5>
-            <h6 class="w3-text-teal">
-              <i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever
-            </h6>
-            <p>Web Development! All I need to know in one place</p>
-            <hr>
-          </div>
-          <div class="w3-container">
-            <h5 class="w3-opacity">
-              <b>London Business School</b>
-            </h5>
-            <h6 class="w3-text-teal">
-              <i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015
-            </h6>
-            <p>Master Degree</p>
-            <hr>
-          </div>
-          <div class="w3-container">
-            <h5 class="w3-opacity">
-              <b>School of Coding</b>
-            </h5>
-            <h6 class="w3-text-teal">
-              <i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2013
-            </h6>
-            <p>Bachelor Degree</p>
-            <br>
-          </div>
-        </div>
-
+        <ProfileDetailExperience
+          icon="fa-suitcase"
+          headline="Work Experience"
+          :experience-set="workExperience"
+        />
+        <ProfileDetailExperience
+          icon="fa-certificate"
+          headline="Education"
+          :experience-set="education"
+        />
         <!-- End Right Column -->
       </div>
-
       <!-- End Grid -->
     </div>
-
-    <!-- End Page Container -->
+    <!-- End Container -->
   </div>
 </template>
 
 <script>
 import ProfileDetailMainInfo from "./ProfileDetailMainInfo";
 import ProfileDetailSkillGroup from "./ProfileDetailSkillGroup";
+import ProfileDetailExperience from "./ProfileDetailExperience";
 
 export default {
   name: "ProfileDetail",
   components: {
     ProfileDetailMainInfo,
-    ProfileDetailSkillGroup
+    ProfileDetailSkillGroup,
+    ProfileDetailExperience
   },
   computed: {
     profileId() {
@@ -144,6 +71,32 @@ export default {
       languages: [
         { name: "Spanish", value: 100 },
         { name: "English", value: 75 }
+      ],
+      workExperience: [
+        {
+          title: "Frontend Developer / Struck - NicaSource",
+          dateRange: "Apr 2019 - current",
+          description:
+            "Vue.js, Ruby On Rails 3 and AngularJS websites development."
+        },
+        {
+          title: "Frontend, Backend and Mobile Developer / DGA",
+          dateRange: "Nov 2014 - Mar 2019",
+          description:
+            "AngularJS and ReactJs websites development, Java REST API and Android apps"
+        }
+      ],
+      education: [
+        {
+          title: "University / UNI - RUPAP",
+          dateRange: "Mar 2010 - Mar 2015",
+          description: "System Engineering Degree"
+        },
+        {
+          title: "Android ATC / www.androidatc.com",
+          dateRange: "August 25, 2018",
+          description: "AND-801	- Android Certified Application Developer v8"
+        }
       ]
     };
   }
