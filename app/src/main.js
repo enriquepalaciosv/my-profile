@@ -13,7 +13,7 @@ const routes = [
     { path: "/", component: EmployeeList },
     { path: "/profile/:profileId", component: ProfileDetail }
 ];
-const router = new VueRouter({ routes });
+const router = new VueRouter({ routes, mode: "history" });
 
 new Vue({
     router,

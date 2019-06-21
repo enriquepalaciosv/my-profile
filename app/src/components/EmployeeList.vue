@@ -1,8 +1,8 @@
 <template>
   <ul>
-    <li v-for="emp in employees" :key="emp.id">
+    <router-link tag="li" :to="`/profile/${emp.id}`" v-for="emp in employees" :key="emp.id">
       <EmployeeListCard :employee="emp"/>
-    </li>
+    </router-link>
   </ul>
 </template>
 
