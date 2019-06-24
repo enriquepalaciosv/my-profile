@@ -27,7 +27,7 @@ li {
   margin-bottom: 8px;
   cursor: pointer;
   &:hover {
-    background-color: #00968751;
+    background-color: $primary-color;
   }
 }
 </style>
