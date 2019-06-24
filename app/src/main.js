@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import App from "@/App.vue";
 import storeObject from "@/store";
 import { routes } from "@/router";
+import axios from "axios";
 
 Vue.config.productionTip = false;
 
@@ -16,5 +17,8 @@ const store = new Vuex.Store(storeObject);
 new Vue({
   router,
   store,
+  beforeCreate() {
+    axios.defaults.baseURL = process.env.VUE_APP_PROFILES_API_BASE_URL;
+  },
   render: h => h(App)
 }).$mount("#app");

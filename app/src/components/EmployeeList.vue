@@ -14,10 +14,10 @@ export default {
   components: {
     EmployeeListCard
   },
-  data() {
-    return {
-      employees: this.$store.state.employees
-    };
+  computed: {
+    employees() {
+      return this.$store.state.employees;
+    }
   }
 };
 </script>
