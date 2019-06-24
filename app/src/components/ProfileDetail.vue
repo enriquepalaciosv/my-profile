@@ -59,7 +59,7 @@ export default {
   data() {
     const profileId = this.$route.params.profileId;
     return {
-      employee: this.$store.state.employees.find(e => e["_id"] == profileId)
+      employee: this.$store.getters.findEmployeeById(profileId)
     };
   }
 };
