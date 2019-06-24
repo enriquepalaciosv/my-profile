@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const PersonalInformation = require('../models/personalInformation.model');
 
+router.get('/', (req, res) => {
+  PersonalInformation.find({}, (error, data) => {
+    if (error) return console.log(error);
+    res.send(data);
+  })
+});
+
 router.get('/:id', (req, res) => {
   PersonalInformation.find({_id: req.params.id}, (error, data) => {
     if (error) return console.log(error);

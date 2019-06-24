@@ -1,4 +1,5 @@
 require('dotenv').config()
+const cors = require('cors')
 const express = require('express');
 const mongoose = require('mongoose');
 const BodyParser = require('body-parser');
@@ -7,6 +8,7 @@ const BodyParser = require('body-parser');
 const personalInformationRoute = require('./routes/personalInformation.route');
 
 const app = express();
+app.use(cors());
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
@@ -16,11 +18,11 @@ mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.on('open', () => {
-  console.log('connected to MongoDB');
+  console.log('Connected to MongoDB');
 });
 
 // Routes
-app.use('/api/profile', personalInformationRoute);
+app.use('/api/profiles', personalInformationRoute);
 
 const PORT = process.env.PORT || 3000;
 
