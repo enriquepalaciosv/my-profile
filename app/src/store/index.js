@@ -10,14 +10,14 @@ export default {
     }
   },
   actions: {
-    fetchEmployees(context) {
+    fetchEmployees: ({commit}) => {
       axios
         .get("/profiles")
-        .then(response => context.commit("setEmployees", response.data));
+        .then(response => commit("setEmployees", response.data));
     }
   },
   mutations: {
-    setEmployees(state, employees) {
+    setEmployees: (state, employees) => {
       state.employees = employees;
     }
   }
