@@ -3,5 +3,10 @@ import ProfileDetail from "@/components/ProfileDetail";
 
 export default [
   { path: "/", component: EmployeeList },
-  { path: "/profile/:profileId", component: ProfileDetail }
+  {
+    name: "profile",
+    path: "/profile/:profileId",
+    component: ProfileDetail,
+    props: true
+  }
 ];

@@ -49,12 +49,12 @@ export default {
     ProfileDetailSkillGroup,
     ProfileDetailExperience
   },
-  data() {
-    const profileId = this.$route.params.profileId;
-    return {
-      employee: this.$store.getters.findEmployeeById(profileId)
-    };
-  }
+  computed: {
+    employee() {
+      return this.$store.getters.findEmployeeById(this.profileId);
+    }
+  },
+  props: ["profileId"]
 };
 </script>
 <style scoped lang="scss">

@@ -1,7 +1,12 @@
 <template>
   <ul>
-    <router-link tag="li" :to="`/profile/${emp['_id']}`" v-for="emp in employees" :key="emp.id">
-      <EmployeeListCard :employee="emp"/>
+    <router-link
+      tag="li"
+      :to="{name: 'profile', params: { profileId: emp['_id'] }}"
+      v-for="emp in employees"
+      :key="emp.id"
+    >
+      <EmployeeListCard :employee="emp" />
     </router-link>
   </ul>
 </template>
