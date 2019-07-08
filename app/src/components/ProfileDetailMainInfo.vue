@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="w3-display-container avatar-container">
-      <img src="../assets/vue.jpg" style="width: 100%;" alt="Avatar">
+      <img :src="emp.profilePicture" style="width: 100%;" alt="Avatar">
       <div class="w3-display-bottomleft w3-container w3-text-white">
         <h2>{{`${emp.firstName} ${emp.lastName}`}}</h2>
       </div>
