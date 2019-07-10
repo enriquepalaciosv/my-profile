@@ -28,7 +28,13 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  res.send("this will update a basic profile");
+  PersonalInformation.findOneAndUpdate({_id:req.params.id}, req.body, {new: true}, function (error, profile) {
+    if(error){
+      console.log(error);
+      res.send('There was an error');
+    }
+    res.send(profile);
+  });
 });
 
 router.delete("/:id", (req, res) => {
