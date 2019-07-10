@@ -1,14 +1,7 @@
 <template>
-  <ul>
-    <router-link
-      tag="li"
-      :to="{name: 'profile', params: { profileId: emp['_id'] }}"
-      v-for="emp in employees"
-      :key="emp.id"
-    >
-      <EmployeeListCard :employee="emp" />
-    </router-link>
-  </ul>
+  <div class="grid">
+    <EmployeeListCard :employee="emp" v-for="emp in employees" :key="emp.id" />
+  </div>
 </template>
 
 <script>
@@ -28,11 +21,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-li {
-  margin-bottom: 8px;
-  cursor: pointer;
-  &:hover {
-    background-color: $primary-color;
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media only screen and (min-width: 768px) {
+    justify-content: start;
   }
 }
 </style>

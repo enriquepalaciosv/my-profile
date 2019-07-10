@@ -1,9 +1,12 @@
 <template>
-  <div class="employee-card">
-    <p>{{fullName}}</p>
-    <small>
-      <b>{{employee.profession}}</b>
-    </small>
+  <div class="card" @click="goToDetail(employee['_id'])">
+    <img :src="employee.profilePicture" alt="Avatar" />
+    <div class="container">
+      <h4>
+        <b>{{fullName}}</b>
+      </h4>
+      <p>{{employee.profession}}</p>
+    </div>
   </div>
 </template>
 
@@ -16,17 +19,41 @@ export default {
       return `${firstName} ${lastName} `;
     }
   },
+  methods: {
+    goToDetail(id) {
+      this.$router.push({ name: "profile", params: { profileId: id } });
+    }
+  },
   props: {
     employee: Object
   }
 };
 </script>
 
-<style scoped>
-.employee-card,
+<style scoped lang="scss">
+.card {
+  margin: 16px;
+  max-width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.container {
+  padding: 2px 8px;
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+}
+
 p {
-  text-align: left;
-  margin: 2px 0 2px 0;
+  margin: 2px 0 4px 0;
 }
 </style>
 
