@@ -5,9 +5,10 @@ import App from "@/App.vue";
 import storeObject from "@/store";
 import { routes } from "@/router";
 import axios from "axios";
+import * as filters from "@/utils/filters";
 
 Vue.config.productionTip = false;
-
+Vue.filter("date", filters.date);
 Vue.use(VueRouter);
 Vue.use(Vuex);
 

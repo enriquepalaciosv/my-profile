@@ -17,6 +17,10 @@
         {{emp.address}}
       </p>
       <p>
+        <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i>
+        {{emp.birthday | date}}
+      </p>
+      <p>
         <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
         {{emp.email}}
       </p>
