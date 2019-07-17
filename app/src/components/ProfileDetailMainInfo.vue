@@ -24,6 +24,17 @@
         <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
         {{emp.phoneNumber}}
       </p>
+
+      <p v-if="emp.twitter">
+        <i class="fa fa-twitter fa-fw w3-margin-right w3-large w3-text-teal"></i>
+        {{emp.twitter}}
+      </p>
+
+      <p v-if="emp.linkedIn">
+        <i class="fa fa-linkedin fa-fw w3-margin-right w3-large w3-text-teal"></i>
+        {{emp.linkedIn}}
+      </p>
+
       <hr />
     </div>
   </div>
@@ -45,10 +56,10 @@ export default {
 
 <style scoped lang="scss">
 .photo {
-  width: 100%;  
+  width: 100%;
 }
 
-.name{
+.name {
   z-index: 2;
 }
 
