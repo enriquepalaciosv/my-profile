@@ -6,6 +6,9 @@
         <b>{{fullName}}</b>
       </h4>
       <p>{{employee.profession}}</p>
+      <div class="short-bio">
+        <p>{{employee.shortBio}}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -31,9 +34,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+h4 {
+  margin-bottom: 0;
+}
+
 .card {
   margin: 16px;
-  max-width: 250px;
+  max-width: 300px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
@@ -54,6 +61,14 @@ img {
 
 p {
   margin: 2px 0 4px 0;
+}
+
+.short-bio {
+  color: gray;
+  text-align: justify;
+  max-height: 200px;
+  overflow: auto;
+  font-size: 0.8em;
 }
 </style>
 

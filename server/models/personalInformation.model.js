@@ -12,6 +12,7 @@ const personalInformation = new Schema({
   address: String,
   twitter: String,
   linkedIn: String,
+  shortBio: String,
   skills: Array,  // example  { name: "VueJs", value: 40 }
   languages: Array, // example  { name: "English", value: 75 }
   workExperience: Array, // { title: "Frontend Developer / Struck - NicaSource",dateRange: "Apr 2019 - current", description: "Vue.js, Ruby On Rails 3 and AngularJS websites development."}
