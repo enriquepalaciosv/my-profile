@@ -27,6 +27,7 @@ export default {
             axios
                 .put(`/profiles/${id}`, profile)
                 .then(() => alert("Registro actualizado"));
+            commit("setEditMode", false);
         }
     },
     mutations: {
