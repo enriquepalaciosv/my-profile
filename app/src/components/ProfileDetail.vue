@@ -13,15 +13,20 @@
         <div class="w3-row-padding" v-if="employee">
             <div class="w3-third">
                 <div class="w3-white w3-text-grey w3-card-4">
-                    <ProfileDetailMainInfo :employee="employee"/>
+                    <ProfileDetailMainInfo :employee="employee" :edit-mode="editMode" @change="grabData"/>
                     <div class="w3-container">
                         <ProfileDetailSkillGroup
+                                :change-handler="grabSkill"
+                                :edit-mode="editMode"
                                 :skill-set="employee.skills"
                                 icon="fa-asterisk"
                                 :headline="'Skills'"
                                 :show-detail="true"
+
                         />
                         <ProfileDetailSkillGroup
+                                :change-handler="grabSkill"
+                                :edit-mode="editMode"
                                 :skill-set="employee.languages"
                                 icon="fa-globe"
                                 :headline="'Languages'"
@@ -70,13 +75,30 @@
                 return this.$store.getters.editMode;
             }
         },
+        data() {
+            return {
+                selectedEmployee: undefined
+            }
+        },
         methods: {
             deactivateEditMode() {
                 this.$store.dispatch("deactivateEditMode");
             },
+            grabData(employee) {
+                this.selectedEmployee = employee;
+            },
+            grabSkill(skill) {
+                if (!this.selectedEmployee) {
+                    this.selectedEmployee = this.employee;
+                }
+                this.selectedEmployee = {
+                    ...this.selectedEmployee,
+                    skills: this.selectedEmployee.skills.map((s,i) => i === skill.index ? skill : s)
+                };
+            },
             updateProfile() {
-                const {_id} = this.employee;
-                this.$store.dispatch("updateEmployee", {id: _id, profile: this.employee});
+                const {_id} = this.selectedEmployee;
+                this.$store.dispatch("updateEmployee", {id: _id, profile: this.selectedEmployee});
             }
         },
         props: ["profileId"]

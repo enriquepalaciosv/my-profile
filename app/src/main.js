@@ -7,7 +7,9 @@ import { routes } from "@/router";
 import axios from "axios";
 import * as filters from "@/utils/filters";
 
-Vue.config.productionTip = false;
+Vue.config.devtools = true;
+Vue.config.productionTip = true;
+
 Vue.filter("date", filters.date);
 Vue.use(VueRouter);
 Vue.use(Vuex);

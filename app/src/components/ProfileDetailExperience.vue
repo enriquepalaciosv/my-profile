@@ -7,15 +7,15 @@
         <div class="w3-container" v-for="(exp,index) in experiences" :key="index">
             <h5 class="w3-opacity">
                 <b v-if="!editMode">{{exp.title}}</b>
-                <input type="text" class="full-width" v-model="exp.title" v-if="editMode"/>
+                <input type="text" class="full-width w3-border w3-round-large" v-model="exp.title" v-if="editMode"/>
             </h5>
             <h6 class="w3-text-teal" v-if="!editMode">
                 <i class="fa fa-calendar fa-fw w3-margin-right"></i>
                 {{exp.dateRange}}
             </h6>
-            <input type="text" class="dates" v-model="exp.dateRange" v-if="editMode"/>
+            <input type="text" class="dates w3-border w3-round-large" v-model="exp.dateRange" v-if="editMode"/>
             <p v-if="!editMode">{{exp.description}}</p>
-            <input type="text" class="full-width" v-model="exp.description" v-if="editMode"/>
+            <input type="text" class="full-width w3-border w3-round-large" v-model="exp.description" v-if="editMode"/>
             <hr>
         </div>
     </div>
@@ -51,6 +51,7 @@
 
     input.dates {
         color: $primary-color;
+        margin-bottom: 2px;
     }
 
 </style>

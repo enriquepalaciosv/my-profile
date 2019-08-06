@@ -7,7 +7,7 @@ export default {
     },
     getters: {
         findEmployeeById: state => id => {
-            return state.employees.find(emp => emp["_id"] == id);
+            return state.employees.find(emp => emp["_id"] === id);
         },
         editMode: state => state.editMode
     },
@@ -26,8 +26,12 @@ export default {
         updateEmployee: ({commit}, {id, profile}) => {
             axios
                 .put(`/profiles/${id}`, profile)
-                .then(() => alert("Registro actualizado"));
-            commit("setEditMode", false);
+                .then(response => {
+                    alert("Registro actualizado");
+                    commit("setEditMode", false);
+                    commit("updateEmployee", response.data);
+                });
+
         }
     },
     mutations: {
@@ -36,6 +40,9 @@ export default {
         },
         setEditMode: (state, mode) => {
             state.editMode = mode;
+        },
+        updateEmployee: (state, updated) => {
+            state.employees = state.employees.map(emp => emp["_id"] === updated["_id"] ? updated : emp);
         }
     }
 };
