@@ -7,6 +7,9 @@
     "postinstall": "cd app && npm install",
     "start": "node app.js" 
   },
+  "engines": {
+    "node": "v10.10.0"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
