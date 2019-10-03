@@ -38,7 +38,7 @@ You're able to call the following endpoints:
 |:-- |:-- |
 | **GET** /api/profiles          | Fetch all registries |
 | **GET** /api/profiles/*:id*    | Find one registry by ID |
-| **POST** /api/profiles         | Create a new one as the `/models` structure or `test.json` file |
+| **POST** /api/profiles         | Create a new one as the `/models` structure or `/tests/data.js` file |
 | **PUT** /api/profiles/*:id*    | Update one, make sure to inclue ID in the path |
 | **DELETE** /api/profiles/*:id* | Delete a registry permanently |
 ___
