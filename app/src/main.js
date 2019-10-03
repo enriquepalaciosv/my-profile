@@ -21,7 +21,7 @@ new Vue({
   router,
   store,
   beforeCreate() {
-    axios.defaults.baseURL = process.env.VUE_APP_PROFILES_API_BASE_URL;
+    axios.defaults.baseURL = process.env.VUE_APP_PROFILES_API_BASE_URL || "http://localhost:3000/api/";
   },
   render: h => h(App)
 }).$mount("#app");
