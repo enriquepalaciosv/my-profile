@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {    
+  "scripts": {
     "postinstall": "cd app && npm install && npm run build",
     "start": "node app.js"
   },
