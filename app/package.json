@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "engines": {
-    "node": "v10.10.0"
+    "node": "v8.10.0"
   },
   "dependencies": {
     "axios": "^0.19.0",

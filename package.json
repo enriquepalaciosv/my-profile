@@ -4,11 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "heroku-prebuild": "cd app && npm install && npm run build",
+    "heroku-postbuild": "cd app && npm install && npm run build",
     "start": "node app.js"
   },
   "engines": {
-    "node": "v10.10.0"
+    "node": "v8.10.0"
   },
   "author": "",
   "license": "ISC",
