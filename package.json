@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {    
+    "postinstall": "cd app && npm install",
     "start": "node app.js"
   },
   "engines": {
