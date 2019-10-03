@@ -69,7 +69,8 @@
         },
         computed: {
             employee() {
-                return this.$store.getters.findEmployeeById(this.profileId);
+                const profileId = this.profileId ? this.profileId : process.env.VUE_APP_DEFAULT_PROFILE_ID;
+                return this.$store.getters.findEmployeeById(profileId);
             },
             editMode() {
                 return this.$store.getters.editMode;
