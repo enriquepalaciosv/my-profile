@@ -15,7 +15,7 @@ app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
 // DB Connection
-mongoose.connect(process.env.MONGODB, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(process.env.MONGOLAB_URI,{useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.on('open', () => console.log('Connected to MongoDB'));
