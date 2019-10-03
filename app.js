@@ -15,7 +15,7 @@ app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
 // DB Connection
-mongoose.connect(process.env.MONGODB, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.on('open', () => console.log('Connected to MongoDB'));
@@ -25,8 +25,8 @@ app.use('/api/profiles', personalInformationRoute);
 
 app.use(express.static('app/dist'));
 
-app.get('/profile/*',(req, res)=>{
-  res.sendFile(__dirname +'app/dist/index.html');
+app.get('/profile/*', (req, res) => {
+  res.sendFile(__dirname + 'app/dist/index.html');
 });
 
 const PORT = process.env.PORT || 3000;
