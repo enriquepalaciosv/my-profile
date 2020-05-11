@@ -1,4 +1,5 @@
 import axios from "axios";
+import data from './data';
 
 export default {
     state: {
@@ -7,15 +8,13 @@ export default {
     },
     getters: {
         findEmployeeById: state => id => {
-            return state.employees.find(emp => emp["_id"] === id);
+            return data;
         },
         editMode: state => state.editMode
     },
     actions: {
-        fetchEmployees: ({commit}) => {
-            axios
-                .get("/profiles")
-                .then(response => commit("setEmployees", response.data));
+        fetchEmployees: ({commit}) => {    
+            commit("setEmployees", [data]);            
         },
         activateEditMode: ({commit}) => {
             commit("setEditMode", true);
